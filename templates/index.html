@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E-Commerce</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+<nav class="bg-white shadow-md">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between items-center h-16">
+
+      <!-- Logo -->
+      <div class="flex items-center">
+        <span class="text-2xl font-bold text-purple-600">ShopEase</span>
+      </div>
+
+      <!-- Menu -->
+      <div class="hidden md:flex space-x-6">
+        <a href="{% url 'home' %}" class="text-gray-700 hover:text-indigo-600">Home</a>
+        <a href="{% url 'products' %}" class="text-gray-700 hover:text-indigo-600">Shop</a>
+        <a href="{% url 'category_page' %}" class="text-gray-700 hover:text-indigo-600">Categories</a>   
+        <a href="{% url 'about' %}" class="text-gray-700 hover:text-indigo-600">About</a>
+        <a href="{% url 'contact' %}" class="text-gray-700 hover:text-indigo-600">Contact</a>
+      </div>
+
+      <!-- Right Buttons -->
+      <div class="flex items-center space-x-4">
+        <!-- Cart -->
+        <button class="relative text-gray-700 hover:text-indigo-600">
+          🛒
+          <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">2</span>
+        </button>
+
+        <!-- Login Button -->
+        <a href="{% url 'logout' %}"
+           class="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">
+          Logout
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+{% block content %}
+
+{% endblock %}
+
+
+<footer class="bg-gray-800 text-gray-300">
+  <div class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+
+    <!-- Brand -->
+    <div>
+      <h2 class="text-xl font-bold text-white mb-3">ShopEase</h2>
+      <p>Your one-stop shop for quality products.</p>
+    </div>
+
+    <!-- Links -->
+    <div>
+      <h3 class="text-white font-semibold mb-3">Quick Links</h3>
+      <ul class="space-y-2">
+        <li><a href="{% url 'home' %}" class="hover:text-white">Home</a></li>
+        <li><a href="#" class="hover:text-white">Shop</a></li>
+        <li><a href="#" class="hover:text-white">Login</a></li>
+        <li><a href="#" class="hover:text-white">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Support -->
+    <div>
+      <h3 class="text-white font-semibold mb-3">Support</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-white">FAQ</a></li>
+        <li><a href="#" class="hover:text-white">Returns</a></li>
+        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <!-- Social -->
+    <div>
+      <h3 class="text-white font-semibold mb-3">Follow Us</h3>
+      <div class="flex space-x-4 text-xl">
+        <a href="#" class="hover:text-white">🌐</a>
+        <a href="#" class="hover:text-white">📘</a>
+        <a href="#" class="hover:text-white">📸</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center text-sm bg-gray-800 py-4">
+    © 2025 ShopEase. All rights reserved.
+  </div>
+</footer>
+</body>
+</html>
+ {% comment %} {% url 'categories' %} {% endcomment %}

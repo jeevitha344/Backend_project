@@ -1,0 +1,82 @@
+{% extends "index.html" %}
+{% block content %}
+ <!-- ================= HERO SECTION ================= -->
+<section class="bg-indigo-600 text-white py-24">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+            Shop Smarter, Live Better
+        </h1>
+        <p class="text-lg mb-6">
+            Quality products • Best prices • Fast delivery
+        </p>
+        <a href="{% url 'products' %}"
+           class="inline-block bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-200">
+            Start Shopping
+        </a>
+    </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="bg-white py-16">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        
+        <div class="p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2">Free Delivery</h3>
+            <p class="text-gray-600">
+                Free shipping on all orders above ₹499.
+            </p>
+        </div>
+
+        <div class="p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2">Secure Payment</h3>
+            <p class="text-gray-600">
+                100% safe and secure payment options.
+            </p>
+        </div>
+
+        <div class="p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2">24/7 Support</h3>
+            <p class="text-gray-600">
+                Dedicated customer support anytime.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= CATEGORY SECTION ================= -->
+<section class="bg-gray-100 py-16">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-10">Shop by Category</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="bg-white p-6 rounded shadow font-semibold">Electronics</div>
+            <div class="bg-white p-6 rounded shadow font-semibold">Fashion</div>
+            <div class="bg-white p-6 rounded shadow font-semibold">Home & Kitchen</div>
+            <div class="bg-white p-6 rounded shadow font-semibold">Accessories</div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= CTA ================= -->
+{% comment %} <section class="bg-indigo-700 text-white py-20 text-center">
+    <h2 class="text-3xl font-bold mb-4">
+        Ready to Start Shopping?
+    </h2>
+    <p class="mb-6">
+        Join thousands of happy customers today.
+    </p>
+    <a href="#"
+       class="bg-white text-indigo-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-200">
+        Explore Products
+    </a> {% endcomment %}
+</section> 
+
+
+
+
+
+
+{% endblock %}
+
+

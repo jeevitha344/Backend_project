@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <!-- Header -->
+  <div class="flex justify-between items-center mb-8">
+    <h1 class="text-3xl font-bold text-gray-800">
+      🛠 Product Management
+    </h1>
+
+    <a href="{% url 'product_form' %}"
+       class="bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700">
+      ➕ Add Product
+    </a>
+  </div>
+
+  <!-- Product Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+
+    {% for item in products %}
+    <div class="bg-white rounded-xl shadow hover:shadow-lg transition duration-300">
+
+      <!-- Product Image -->
+      <div class="h-52 w-full overflow-hidden rounded-t-xl">
+         {% if item.product_image.url %}
+    <img src="{{ item.product_image.url }}" alt="{{ item.product_name }}">
+  {% else %}
+    <img src="{{ item.product_image }}" alt="{{ item.product_name }}" value="{{ product.product_image }}">
+
+        <img
+          src="https://via.placeholder.com/300"
+          class="h-full w-full object-cover"
+        >
+        {% endif %}
+      </div>
+
+      <!-- Product Info -->
+      <div class="p-4">
+        <h2 class="text-lg font-semibold text-gray-800 truncate">
+          {{ item.product_name }}
+        </h2>
+
+        <p class="text-green-600 font-bold mt-1">
+          ₹ {{ item.product_price }}
+        </p>
+
+      
+          
+         <p class="text-sm text-gray-500 mt-1">
+    Category:
+    {% if item.product_category == 1 %}
+        Women
+    {% elif item.product_category == 2 %}
+        Men
+    {% elif item.product_category == 3 %}
+        Kids
+    {% endif %}
+
+        </p>
+
+        <!-- Admin Actions -->
+        <div class="mt-4 flex gap-2">
+          <a href="{% url 'edit_page' item.id  %}"
+             class="w-1/2 text-center bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">
+            ✏ Edit
+          </a>
+
+          <a href="{% url 'delete_page' item.id %}"
+             class="w-1/2 text-center bg-red-500 text-white py-2 rounded-lg hover:bg-red-600">
+            🗑 Delete
+          </a>
+        </div>
+      </div>
+
+    </div>
+    {% empty %}
+      <p class="text-gray-500">No products found</p>
+    {% endfor %}
+  </div>
+  
+{%endblock%}
+

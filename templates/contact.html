@@ -1,0 +1,50 @@
+{%extends 'index.html' %}
+
+{% comment %} {% extends "index.html" %} {% endcomment %}
+
+{%block content%}
+<!-- ================= CONTACT PAGE ================= -->
+<section class="bg-gray-100 py-16">
+    <div class="max-w-4xl mx-auto px-6">
+
+        <h1 class="text-3xl font-bold text-center mb-10">
+            Contact Us
+        </h1>
+
+        <div class="bg-white p-8 rounded-lg shadow">
+
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="mb-4">
+                    <label class="block font-medium mb-1">Name</label>
+                    <input type="text"
+                           class="w-full border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                           placeholder="Enter your name">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block font-medium mb-1">Email</label>
+                    <input type="email"
+                           class="w-full border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                           placeholder="Enter your email">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block font-medium mb-1">Message</label>
+                    <textarea rows="4"
+                              class="w-full border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                              placeholder="Write your message"></textarea>
+                </div>
+
+                <button type="submit"
+                        class="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">
+                    Send Message
+                </button>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+{%endblock%}

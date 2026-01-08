@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin | Orders</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen p-8">
+
+  <!-- HEADER -->
+  <div class="flex justify-between items-center mb-8">
+    <h1 class="text-3xl font-bold text-gray-800">
+      📦 Order Management
+    </h1>
+  </div>
+
+  <!-- ORDER SUMMARY -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+    <div class="bg-white p-6 rounded-xl shadow">
+      <h3 class="text-gray-500">Total Orders</h3>
+      <p class="text-3xl font-bold text-indigo-600">120</p>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow">
+      <h3 class="text-gray-500">Pending</h3>
+      <p class="text-3xl font-bold text-yellow-500">35</p>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow">
+      <h3 class="text-gray-500">Delivered</h3>
+      <p class="text-3xl font-bold text-green-600">70</p>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow">
+      <h3 class="text-gray-500">Cancelled</h3>
+      <p class="text-3xl font-bold text-red-600">15</p>
+    </div>
+  </div>
+
+  <!-- ORDER TABLE -->
+  <div class="bg-white rounded-xl shadow overflow-x-auto">
+
+    <table class="min-w-full text-left">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="px-6 py-4">Order ID</th>
+          <th class="px-6 py-4">Customer</th>
+          <th class="px-6 py-4">Date</th>
+          <th class="px-6 py-4">Amount</th>
+          <th class="px-6 py-4">Status</th>
+          <th class="px-6 py-4">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody class="divide-y">
+
+        <!-- ORDER ROW -->
+        <tr>
+          <td class="px-6 py-4 font-semibold">#ORD1023</td>
+          <td class="px-6 py-4">Anitha</td>
+          <td class="px-6 py-4">25 Dec 2025</td>
+          <td class="px-6 py-4 font-bold">₹ 3,450</td>
+
+          <td class="px-6 py-4">
+            <span class="px-3 py-1 rounded-full text-sm bg-yellow-100 text-yellow-700">
+              Pending
+            </span>
+          </td>
+
+          <td class="px-6 py-4 flex gap-2">
+            <button class="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600">
+              View
+            </button>
+            <button class="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600">
+              Update
+            </button>
+          </td>
+        </tr>
+
+        <!-- ORDER ROW -->
+        <tr>
+          <td class="px-6 py-4 font-semibold">#ORD1024</td>
+          <td class="px-6 py-4">Ravi</td>
+          <td class="px-6 py-4">24 Dec 2025</td>
+          <td class="px-6 py-4 font-bold">₹ 1,999</td>
+
+          <td class="px-6 py-4">
+            <span class="px-3 py-1 rounded-full text-sm bg-green-100 text-green-700">
+              Delivered
+            </span>
+          </td>
+
+          <td class="px-6 py-4 flex gap-2">
+            <button class="bg-blue-500 text-white px-4 py-1 rounded">
+              View
+            </button>
+            <button class="bg-gray-400 text-white px-4 py-1 rounded cursor-not-allowed">
+              Update
+            </button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+</body>
+</html>

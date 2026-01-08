@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin | Product Form</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+
+  <!-- FORM CONTAINER -->
+  <div class="bg-white rounded-xl shadow-lg w-full max-w-2xl p-8">
+
+    <!-- TITLE -->
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">
+      Product Form
+    </h2>
+
+    <!-- PRODUCT FORM -->
+  <form method="POST" action="{% url 'post_page' %}" enctype="multipart/form-data" >
+
+     {% csrf_token %}
+      <!-- PRODUCT NAME -->
+      <div class="mb-4">
+        <label class="block text-gray-700 font-semibold mb-2">
+          Product Name
+        </label>
+        <input type="text"
+               placeholder="Enter product name"
+               name='product_name'
+               class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+               
+      </div>
+
+      <!-- PRICE -->
+      <div class="mb-4">
+        <label class="block text-gray-700 font-semibold mb-2">
+          Price
+        </label>
+        <input type="number"
+               placeholder="Enter price"
+               name='product_price'
+               class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+      </div>
+
+     <!-- CATEGORY -->
+<div class="mb-4">
+    
+  <label class="block text-gray-700 font-semibold mb-2">Category</label>
+  <select name="product_category" class="w-full p-3 border rounded-lg">
+    <option value="1">Women</option>
+   <option value="2">Men</option>
+   <option value="3">Kids</option> 
+  </select>
+</div>
+
+<!-- IMAGE URL -->
+<div class="mb-6">
+  <label class="block text-gray-700 font-semibold mb-2">Product Image URL</label>
+  {% comment %} <input type="text" name="product_image" placeholder="Enter image URL" value="{{ product.product_image }}"class="w-full p-3 border rounded-lg">
+</div> {% endcomment %}
+<input type="file" name="product_image" placeholder="Enter image URL" class="w-full p-3 border rounded-lg">
+</div>
+
+
+      <!-- BUTTONS -->
+      <div class="flex gap-4">
+        <button type="submit"
+                class="w-1/2 bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition">
+          Save Product
+        </button>
+
+        <a href="admin_product_list.html"
+           class="w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg hover:bg-gray-400 transition">
+          Cancel
+        </a>
+      </div>
+
+    </form>
+
+  </div>
+
+</body>
+</html>
