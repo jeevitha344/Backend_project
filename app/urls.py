@@ -25,10 +25,10 @@ urlpatterns = [
     path('post_page/',post_page,name='post_page'),
    path('product_form/',product_form_page,name='product_form'),
   path('order/',order_page,name='order'),
-  path('signupapi/',signupapi.as_view(),name='signupapi'),
-  path('loginapi/', loginapi.as_view(), name='loginapi'),
- path('product_handler/',product_handler.as_view(),name='product_list_api'),
-path("product_handler/<int:productid>/", product_handler.as_view(), name="product_detail_api"),
+#   path('signupapi/',signupapi.as_view(),name='signupapi'),
+#   path('loginapi/', loginapi.as_view(), name='loginapi'),
+#  path('product_handler/',product_handler.as_view(),name='product_list_api'),
+# path("product_handler/<int:productid>/", product_handler.as_view(), name="product_detail_api"),
 
 
   path('edit/<int:productid>/',edit_page,name='edit_page'),
