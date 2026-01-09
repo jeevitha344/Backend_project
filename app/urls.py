@@ -13,7 +13,7 @@ urlpatterns = [
     path('logout/',logout_handler,name='logout'),
    
      #---------------userpanal-------------------------------
-    path('home/',home_page,name='home'),
+    # path('home/',home_page,name='home'),
     path('products/',products,name='products'),
     path('about/',about_page,name='about'),
     path('contact/',contact_page,name='contact'),

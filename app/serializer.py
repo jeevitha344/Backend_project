@@ -16,13 +16,17 @@ class product_detailsserializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class loginserializer(TokenObtainPairSerializer):
-    @classmethod
-    def  get_token(cls,user):
-        token=super().get_token(user)
-        return token
+class loginserializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+
+    # @classmethod
+    # def  get_token(cls,user):
+    #     token=super().get_token(user)
+    #     return token
     
     def validate(self, validated_data):
+
         username = validated_data.get("username")
         password = validated_data.get("password")
 

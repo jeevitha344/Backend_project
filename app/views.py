@@ -53,7 +53,17 @@ def contact_page(request):
 #------------------------------------------adminpanal get --------------------------------------
 
 def admin_page(request):
-    return render(request,'base.html')
+    total_products = product_details.objects.count()        
+    total_categories = products_category.objects.count()
+    print("Total Products:", total_products)
+    print("Total Categories:", total_categories)
+
+    context = {
+        'total_products': total_products,
+        'total_categories': total_categories,
+    }
+
+    return render(request, 'base.html', context)
 
 def product_form_page(request):
     return render(request,'product_form.html')
@@ -174,15 +184,12 @@ def signup_handler(request):
 
 def login_handler(request):
     if request.method == 'POST':
-        data = {
-            "username": request.POST.get("username"),
-            "password": request.POST.get("password"),
-        }
+        username = request.POST.get("username")
+        password = request.POST.get("password")
 
-        serializer = loginserializer(data=data)
+        user = authenticate(request, username=username, password=password)
 
-        if serializer.is_valid():
-            user = serializer.validated_data["user"]
+        if user:
             login(request, user)
 
             if user.is_superuser or user.is_staff:
@@ -191,12 +198,10 @@ def login_handler(request):
                 return redirect("home")
 
         return render(request, "login.html", {
-            "errors": serializer.errors
+            "error": "Invalid username or password"
         })
 
-    #  For GET request
     return render(request, "login.html")
-             
              
 def post_page(request):
     if request.method == "POST":
@@ -207,9 +212,15 @@ def post_page(request):
             "product_image": request.FILES.get("product_image"),
 
         }
-        serializer=product_detailsserializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
+        if 'product_image' in request.FILES:
+            data['product_image'] = request.FILES['product_image']
+            print("DATA SENT TO SERIALIZER:", data)
+            serializer = product_detailsserializer(data=data)
+            if serializer.is_valid():
+                serializer.save()
+                print("Product saved successfully")
+            else:
+             print("Serializer errors:", serializer.errors)
             return redirect('product_list')
         
     return render(request, "product_form.html") #Displays empty form this is  GET request
@@ -226,13 +237,19 @@ def edit_page(request, productid=None):
             "product_price": request.POST.get("product_price"),
             "product_category": request.POST.get("product_category"),
             "product_image": request.FILES.get("product_image"),
+            
         }
+        if 'product_image' in request.FILES:
+            data['product_image'] = request.FILES['product_image']
         if productid:
             
             serializer=product_detailsserializer(product,data=data)
             if serializer.is_valid():
                 serializer.save()
-                return redirect('product_list')
+                print("Product saved successfully")
+            else:
+                print("Serializer errors:", serializer.errors)
+            return redirect('product_list')
     
 
     return render(request,'edit.html',{"product":product})
@@ -254,11 +271,11 @@ def delete_page(request, productid):
 
 def product_list_page(request):
     
-    products=product_details.objects.all()
-    serializer=product_detailsserializer(products,many=True)
-    product=serializer.data
+    product=product_details.objects.all()
+    serializer=product_detailsserializer(product,many=True)
+    product_data=serializer.data
    
-    return render(request, "product_list.html", {"products": product}) 
+    return render(request, "product_list.html", {"products": product_data}) 
     
 
 
