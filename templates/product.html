@@ -33,18 +33,13 @@
       <div class="bg-white rounded-xl shadow hover:shadow-lg transition duration-300   ">
 
         <!-- Product Image -->
-       <div class="h-52 w-full overflow-hidden rounded-t-xl">
-         {% if item.product_image.url %}
-    <img src="{{ item.product_image.url }}" alt="{{ item.product_name }}">
-  {% else %}
-    <img src="{{ item.product_image }}" alt="{{ item.product_name }}" value="{{ product.product_image }}">
-
-        <img
-          src="https://via.placeholder.com/300"
-          class="h-full w-full object-cover"
-        >
-        {% endif %}
-      </div>
+        <div class=" aspect-square  overflow-hidden rounded-t-xl">
+          <img
+            src="{{ item.product_image.url }}"
+            alt="{{ item.product_name }}"
+            class="h-full w-full object-contain"
+          >
+        </div>
 
         <!-- Product Info -->
         <div class="p-4">
