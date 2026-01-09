@@ -42,12 +42,12 @@ def order_page(request):
 
 def products(request):
     product=product_details.objects.all()
-    for item in product:
-        print("IMAGE NAME:", item.product_image)
-        if item.product_image:
-            print("IMAGE URL:", item.product_image.url)
-        else:
-            print("NO IMAGE")
+    # for item in product:
+    #     print("IMAGE NAME:", item.product_image)
+    #     if item.product_image:
+    #         print("IMAGE URL:", item.product_image.url)
+    #     else:
+    #         print("NO IMAGE")
     category=products_category.objects.all()
     return render(request,'product.html',{'product':product,"category":category})
 
