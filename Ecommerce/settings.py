@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = 'Ecommerce.urls'
@@ -127,3 +129,12 @@ STATIC_URL = 'static/'
 
 MEDIA_URL ='/media/'
 MEDIA_ROOT =BASE_DIR /'media'
+
+
+CORS_ALLOW_ALL_ORIGINS= True #development time
+CORS_ALLOWED_ORIGINS =[
+"http://127.0.0.1:8000/",
+# Dev
+"https://backend-project-f2lf.onrender.com", # Production
+]
+
