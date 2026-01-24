@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 class product_detailsserializer(serializers.ModelSerializer):
-
+    product_image = serializers.ImageField(use_url=True)
 #     product_category = serializers.SlugRelatedField(
 #     queryset=products_category.objects.all(),
 #     slug_field="category"
